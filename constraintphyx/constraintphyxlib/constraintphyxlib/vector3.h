@@ -7,6 +7,8 @@ public:
 
 	vector3 operator + (const vector3& rhs);
 	vector3 operator - (const vector3& rhs);
+
+	float Length();
 	float x;
 	float y;
 	float z;
