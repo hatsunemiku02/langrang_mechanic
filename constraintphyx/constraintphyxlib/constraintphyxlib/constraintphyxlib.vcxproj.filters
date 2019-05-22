@@ -14,6 +14,9 @@
     <Filter Include="phyx\constaint">
       <UniqueIdentifier>{7332c263-3efa-4246-b39f-b01490e1dacf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="phyx\math">
+      <UniqueIdentifier>{ba4e875f-26af-4bab-9087-e9350e3fe7ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -25,12 +28,18 @@
     <ClCompile Include="distanceconstraint.cpp">
       <Filter>phyx\constaint</Filter>
     </ClCompile>
+    <ClCompile Include="vector3.cpp">
+      <Filter>phyx\math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="particle.h">
       <Filter>phyx\particle</Filter>
     </ClInclude>
-    <ClInclude Include="distancecontraint.h">
+    <ClInclude Include="vector3.h">
+      <Filter>phyx\math</Filter>
+    </ClInclude>
+    <ClInclude Include="distanceconstraint.h">
       <Filter>phyx\constaint</Filter>
     </ClInclude>
   </ItemGroup>
