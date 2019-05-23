@@ -31,6 +31,9 @@
     <ClCompile Include="vector3.cpp">
       <Filter>phyx\math</Filter>
     </ClCompile>
+    <ClCompile Include="matrix33.cpp">
+      <Filter>phyx\math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="particle.h">
@@ -41,6 +44,9 @@
     </ClInclude>
     <ClInclude Include="distanceconstraint.h">
       <Filter>phyx\constaint</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix33.h">
+      <Filter>phyx\math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

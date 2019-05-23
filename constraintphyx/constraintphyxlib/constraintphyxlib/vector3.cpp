@@ -11,7 +11,6 @@ vector3::~vector3()
 
 }
 
-
 float vector3::Length()
 {
 	return sqrtf(x*x + y * y + z * z);
