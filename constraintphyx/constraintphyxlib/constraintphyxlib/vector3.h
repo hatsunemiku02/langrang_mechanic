@@ -1,12 +1,19 @@
 #pragma once
+class matrix33;
 class vector3
 {
 public:
 	vector3();
+	vector3(float x,float y, float z);
 	~vector3();
 
 	vector3 operator + (const vector3& rhs);
 	vector3 operator - (const vector3& rhs);
+
+	float Dot(const vector3& rhs);
+
+	vector3 operator * (const matrix33& rhs);
+	
 
 	friend vector3 operator * (const vector3& rhs, const float& lhs)
 	{

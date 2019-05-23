@@ -1,14 +1,20 @@
 #pragma once
-class vector3;
+
+#include "vector3.h"
+
 class matrix33
 {
 public:
 	matrix33();
 	virtual ~matrix33();
 
-	matrix33 operator* (const vector3& rhs);
-
-	float value[3][3];
+	vector3 operator* (const vector3& rhs);
+	union
+	{
+		float value[3][3];
+		vector3 vecs[3];//row vec3;
+	};
+	vector3 GetColumnVecs(int i) const;
 
 protected:
 

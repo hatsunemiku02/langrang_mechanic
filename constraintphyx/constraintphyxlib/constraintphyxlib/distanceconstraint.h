@@ -26,9 +26,11 @@ public:
 	vector3 ComputeJacobiPB();
 	float ComputeLambdaA();
 	float ComputeLambdaB();
+	
 	Particle* m_pPA;
 	Particle* m_pPB;
 	float m_Distance;
 protected:
+	float ComputeLambda(Particle* par);
 private:
 };
