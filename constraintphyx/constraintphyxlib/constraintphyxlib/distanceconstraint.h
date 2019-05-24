@@ -22,6 +22,7 @@ public:
 	DistanceConstraint();
 	~DistanceConstraint();
 	void Init(Particle* pa, Particle* pb);
+	void Update();
 	vector3 ComputeJacobiPA();
 	vector3 ComputeJacobiPB();
 	float ComputeLambdaA();

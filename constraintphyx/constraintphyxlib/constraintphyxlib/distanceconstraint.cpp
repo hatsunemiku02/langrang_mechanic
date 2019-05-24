@@ -18,17 +18,25 @@ void DistanceConstraint::Init(Particle* pa, Particle* pb)
 	m_Distance = (m_pPA->mPosition - m_pPB->mPosition).Length();
 }
 
+void DistanceConstraint::Update()
+{
+	vector3 forcea = ComputeLambdaA()*ComputeJacobiPA();
+	vector3 forceb = ComputeLambdaB()*ComputeJacobiPB();
+	m_pPA->mInternalForce = forcea;
+	m_pPB->mInternalForce = forceb;
+}
+
 vector3 DistanceConstraint::ComputeJacobiPA()
 {
 	vector3 jacobi;
-	jacobi = (m_pPA->mPosition - m_pPB->mPosition)*2;
+	jacobi = (m_pPA->mPosition - m_pPB->mPosition)* -2;
 	return jacobi;
 }
 
 vector3 DistanceConstraint::ComputeJacobiPB()
 {
 	vector3 jacobi;
-	jacobi = (m_pPB->mPosition - m_pPA->mPosition) * 2;
+	jacobi = (m_pPB->mPosition - m_pPA->mPosition) * -2;
 	return jacobi;
 }
 
@@ -51,7 +59,7 @@ float DistanceConstraint::ComputeLambdaA()
 	vector3 Jacobi = ComputeJacobiPA();
 	float Denominator = Jacobi.Dot(inversemat*Jacobi);
 	float Molecule = Jacobi.Dot(m_pPA->mVelocity);
-	return Molecule / Denominator;
+	return -Molecule / Denominator;
 }
 
 float DistanceConstraint::ComputeLambdaB()
@@ -64,5 +72,5 @@ float DistanceConstraint::ComputeLambdaB()
 	vector3 Jacobi = ComputeJacobiPB();
 	float Denominator = Jacobi.Dot(inversemat*Jacobi);
 	float Molecule = Jacobi.Dot(m_pPB->mVelocity);
-	return Molecule / Denominator;
+	return -Molecule / Denominator;
 }

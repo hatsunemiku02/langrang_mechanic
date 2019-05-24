@@ -19,9 +19,9 @@ matrix33::~matrix33()
 vector3 matrix33::operator*(const vector3& rhs)
 {
 	vector3 ret;
-	ret.x = this->vecs[1].Dot(rhs);
-	ret.y = this->vecs[2].Dot(rhs);
-	ret.z = this->vecs[3].Dot(rhs);
+	ret.x = this->vecs[0].Dot(rhs);
+	ret.y = this->vecs[1].Dot(rhs);
+	ret.z = this->vecs[2].Dot(rhs);
 	return ret;
 }
 
