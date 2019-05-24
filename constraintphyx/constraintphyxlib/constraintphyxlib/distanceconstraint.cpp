@@ -29,14 +29,14 @@ void DistanceConstraint::Update()
 vector3 DistanceConstraint::ComputeJacobiPA()
 {
 	vector3 jacobi;
-	jacobi = (m_pPA->mPosition - m_pPB->mPosition)* -2;
+	jacobi = (m_pPA->mPosition - m_pPB->mPosition)* 2;
 	return jacobi;
 }
 
 vector3 DistanceConstraint::ComputeJacobiPB()
 {
 	vector3 jacobi;
-	jacobi = (m_pPB->mPosition - m_pPA->mPosition) * -2;
+	jacobi = (m_pPB->mPosition - m_pPA->mPosition) * 2;
 	return jacobi;
 }
 
