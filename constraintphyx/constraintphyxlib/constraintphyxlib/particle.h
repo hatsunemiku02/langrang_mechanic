@@ -15,13 +15,20 @@ public:
 	ParticleType m_Type;
 	vector3 mPosition;
 	float mMass;
-	vector3 mPrePosition;
+	float mInvMass;
+	vector3 mPrediectPosition;
 
 	vector3 mExternalForce;
 	vector3 mInternalForce;
+	vector3 mExternalImpsule;
+	vector3 mContraintImpsule;
 
 	vector3 mVelocity;
+	vector3 mAcceleration;
 
+	void PrediectV(float time);
+	void ProjV(float time);
+	void UpdatePosition(float time);
 	void Update(float time);
 
 protected:

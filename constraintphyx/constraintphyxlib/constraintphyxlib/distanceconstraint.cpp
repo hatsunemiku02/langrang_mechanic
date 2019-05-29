@@ -20,16 +20,22 @@ void DistanceConstraint::Init(Particle* pa, Particle* pb)
 
 void DistanceConstraint::Update()
 {
-	vector3 forcea = ComputeLambdaA()*ComputeJacobiPA();
-	vector3 forceb = ComputeLambdaB()*ComputeJacobiPB();
-	m_pPA->mInternalForce = forcea;
-	m_pPB->mInternalForce = forceb;
+	vector3 impsulea = ComputeLambdaA()*ComputeJacobiPA();
+	vector3 impsuleb = ComputeLambdaB()*ComputeJacobiPB();
+
+	//vector3 forcea = ComputeJacobiPA();
+	//vector3 forceb = ComputeJacobiPB();
+	m_pPA->mContraintImpsule = impsulea;
+	m_pPB->mContraintImpsule = impsuleb;
 }
 
 vector3 DistanceConstraint::ComputeJacobiPA()
 {
 	vector3 jacobi;
 	jacobi = (m_pPA->mPosition - m_pPB->mPosition)* 2;
+
+	//vector3 temp = m_pPA->mMass*m_pPA->mAcceleration - m_pPA->mExternalForce ;
+
 	return jacobi;
 }
 
@@ -37,6 +43,8 @@ vector3 DistanceConstraint::ComputeJacobiPB()
 {
 	vector3 jacobi;
 	jacobi = (m_pPB->mPosition - m_pPA->mPosition) * 2;
+
+	//vector3 temp = m_pPB->mMass*m_pPB->mAcceleration - m_pPB->mExternalForce;
 	return jacobi;
 }
 
